@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @participants = Participant.where(team_id: @team.id).order("name asc")
   end
 
   # GET /teams/new
