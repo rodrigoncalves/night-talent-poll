@@ -1,0 +1,29 @@
+<div class="container">
+  <% if flash[:alert].present? %>
+    <div class="alert alert-danger">
+      <%= button_tag '', class: 'close', data: { dismiss:'alert' } do %>
+        <span aria-hidden="true">&times;</span>
+      <% end %>
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <% if flash[:notice].present? %>
+    <div class="alert alert-info">
+      <%= button_tag '', class: 'close', data: { dismiss:'alert' } do %>
+        <span aria-hidden="true">&times;</span>
+      <% end %>
+      <span class="glyphicon glyphicon-info-sign"></span>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <%= bootstrap_form_tag url: "/poll" do |f| %>
+    <%= f.text_field :code, { label: "Enter your code:" } %>
+    <%= f.select :team_id, @teams.collect { |team| [team.name, team.id] },
+      { label: "Choose your favorite team:" },
+      { class: "selectpicker",  wrapper: { class: 'has-warning'} } %>
+    <%= f.submit "Vote", class: 'btn btn-primary' %>
+  <% end %>
+</div
