@@ -15,10 +15,13 @@ class ParticipantsController < ApplicationController
   # GET /participants/new
   def new
     @participant = Participant.new
+    @participant.team_id = params['format']
+    @teams = Team.all
   end
 
   # GET /participants/1/edit
   def edit
+    @teams = Team.all
   end
 
   # POST /participants
