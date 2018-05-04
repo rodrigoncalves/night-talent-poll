@@ -22,3 +22,7 @@ Participant.create name: "Isabela Lima", team_id: 4
 Participant.create name: "Rodrigo Santana", team_id: 4
 Participant.create name: "Bruno Barbosa", team_id: 4
 Participant.create name: "Luiz Felipe", team_id: 4
+
+for i in 1..100
+  Poll.create code: SecureRandom.hex(6)
+end
