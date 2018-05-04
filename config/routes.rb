@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'poll#index'
   resources :participants
-  root to: 'teams#index'
   resources :teams
 end
