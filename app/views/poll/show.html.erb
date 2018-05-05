@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>#</th>
       <th>Team name</th>
       <th>Votes</th>
       <th>Percent</th>
@@ -12,8 +13,10 @@
   </thead>
 
   <tbody>
+    <% i = 0 %>
     <% @teams.each do |team| %>
       <tr>
+        <td><%= i+=1 %></td>
         <td><%= team.name %></td>
         <td><%= team.votes %></td>
         <td><%= ((team.votes / @votes_count.to_f) * 100).round(1) %>%</td>
