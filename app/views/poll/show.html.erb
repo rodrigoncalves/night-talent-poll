@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Result</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team name</th>
+      <th>Votes</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.name %></td>
+        <td><%= team.votes %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

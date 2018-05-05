@@ -21,4 +21,8 @@ class PollController < ApplicationController
     end
   end
 
+  def show
+    @teams = Team.all
+  end
+
 end
