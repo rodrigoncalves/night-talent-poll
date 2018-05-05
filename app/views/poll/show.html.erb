@@ -7,6 +7,7 @@
     <tr>
       <th>Team name</th>
       <th>Votes</th>
+      <th>Percent</th>
     </tr>
   </thead>
 
@@ -15,8 +16,10 @@
       <tr>
         <td><%= team.name %></td>
         <td><%= team.votes %></td>
+        <td><%= ((team.votes / @votes_count.to_f) * 100).round(1) %>%</td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<strong>Total: </strong><%= @votes_count %>

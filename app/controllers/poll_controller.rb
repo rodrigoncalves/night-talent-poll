@@ -13,7 +13,7 @@ class PollController < ApplicationController
       render :index
     elsif poll.team_id.nil?
       poll.update(team_id: params[:team_id])
-      flash.now[:notice] = "Thanks for voting"
+      flash.now[:notice] = "Thanks for your voting"
       render :index
     else
       flash.now[:alert] = "You have already voted"
@@ -23,6 +23,7 @@ class PollController < ApplicationController
 
   def show
     @teams = Team.all
+    @votes_count = Poll.valid_votes
   end
 
 end
