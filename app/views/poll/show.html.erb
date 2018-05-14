@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Result</h1>
+<h1><%= t('helper.result') %></h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th>Team name</th>
-      <th>Votes</th>
-      <th>Percent</th>
+      <th><%= t('helper.team_name') %></th>
+      <th><%= t('helper.votes') %></th>
+      <th><%= t('helper.percent') %></th>
     </tr>
   </thead>
 
@@ -19,7 +19,11 @@
         <td><%= i+=1 %></td>
         <td><%= team.name %></td>
         <td><%= team.votes %></td>
-        <td><%= ((team.votes / @votes_count.to_f) * 100).round(1) %>%</td>
+        <% if @votes_count != 0 %>
+          <td><%= ((team.votes / @votes_count.to_f) * 100).round(1) %>%</td>
+        <% else %>
+          <td>-</td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +33,4 @@
 
 <br>
 <br>
-<%= link_to 'Back', root_path %>
+<%= link_to t('helper.back'), root_path %>

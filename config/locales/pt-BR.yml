@@ -1,0 +1,29 @@
+pt-BR:
+  activerecord:
+    models:
+      participant:
+        one: Participante
+        other: Participantes
+      poll:
+        one: Votação
+        other: Votações
+      Team:
+        one: Equipe
+        other: Equipes
+    attributes:
+      participant:
+        name: "Nome"
+      poll:
+        code: "Código"
+      team:
+        name: "Nome"
+  helper:
+    code: "Insira seu código:"
+    team: "Escolha sua equipe favorita:"
+    submit: "Confirmar"
+    view_result: "Ver resultado"
+    result: "Resultado"
+    team_name: "Nome da equipe"
+    votes: "Votos"
+    percent: "Porcentagem"
+    back: "Voltar"
