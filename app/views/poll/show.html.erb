@@ -30,7 +30,6 @@
 </table>
 
 <br>
-<br>
 <%= link_to t('helper.back'), root_path %>
 
 <script>
@@ -59,7 +58,8 @@ function RefreshTable(tableId, urlData)
         } else if (j == 2) { // Votos
           cell.textContent = team.votes;
         } else if (j == 3) { // Porcentagem
-          cell.textContent = data.votes_count ? ((team.votes / data.votes_count) * 100).toFixed(1) : "-";
+          value = data.votes_count ? ((team.votes / data.votes_count) * 100).toFixed(1) + "%" : "-";
+          cell.textContent = value;
         }
       }
     }
@@ -74,7 +74,7 @@ function RefreshTable(tableId, urlData)
 
 function AutoReload() {
   RefreshTable('#result-table', '/result.json');
-  timeoutfunc = setTimeout(function(){AutoReload();}, 5000);
+  timeoutfunc = setTimeout(function(){AutoReload();}, 3000);
 }
 
 $(document).ready(function () {
