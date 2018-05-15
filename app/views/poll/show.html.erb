@@ -2,7 +2,7 @@
 
 <h1><%= t('helper.result') %></h1>
 
-<table class="table table-striped">
+<table id="result-table" class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>#</th>
@@ -26,10 +26,12 @@
         <% end %>
       </tr>
     <% end %>
+
+    <tr>
+      <td colspan="4"><strong>Total: </strong><%= @votes_count %></td>
+    </tr>
   </tbody>
 </table>
-
-<strong>Total: </strong><%= @votes_count %>
 
 <br>
 <br>
