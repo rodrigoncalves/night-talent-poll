@@ -25,6 +25,15 @@ class PollController < ApplicationController
     @teams = Team.all
     @teams = @teams.sort_by { |t| -t.votes } # sort by number of votes
     @votes_count = Poll.valid_votes
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: {
+          teams: @teams.to_json(methods: [:votes]),
+          votes_count: @votes_count
+        }
+      }
+    end
   end
 
 end

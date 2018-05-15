@@ -17,18 +17,14 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= i+=1 %></td>
-        <td><%= team.name %></td>
-        <td><%= team.votes %></td>
-        <% if @votes_count != 0 %>
-          <td><%= ((team.votes / @votes_count.to_f) * 100).round(1) %>%</td>
-        <% else %>
-          <td>-</td>
-        <% end %>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
     <% end %>
 
     <tr>
-      <td colspan="4"><strong>Total: </strong><%= @votes_count %></td>
+      <td colspan="4" id="votes_count"></td>
     </tr>
   </tbody>
 </table>
