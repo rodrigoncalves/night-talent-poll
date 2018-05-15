@@ -9,14 +9,14 @@ class PollController < ApplicationController
     @teams = Team.all
 
     if poll.nil?
-      flash.now[:alert] = "The code is not valid"
+      flash.now[:alert] = "Este código é inválido"
       render :index
     elsif poll.team_id.nil?
       poll.update(team_id: params[:team_id])
-      flash.now[:notice] = "Thanks for your voting"
+      flash.now[:notice] = "Obrigado pelo seu voto. Aguarde pelo anúncio do resultado!"
       render :index
     else
-      flash.now[:alert] = "You have already voted"
+      flash.now[:alert] = "Você já votou"
       render :index
     end
   end
