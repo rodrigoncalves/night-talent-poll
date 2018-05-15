@@ -18,9 +18,9 @@ pt-BR:
       team:
         name: "Nome"
   helper:
-    code: "Insira seu código:"
-    team: "Escolha sua equipe favorita:"
-    submit: "Confirmar"
+    code: "Código:"
+    team: "Equipe:"
+    submit: "CONFIRMAR"
     view_result: "Ver resultado"
     result: "Resultado"
     team_name: "Nome da equipe"

@@ -1,31 +1,42 @@
-<% if flash[:alert].present? %>
-  <div class="alert alert-danger">
-    <%= button_tag '', class: 'close', data: { dismiss:'alert' } do %>
-      <span aria-hidden="true">&times;</span>
-    <% end %>
-    <span class="glyphicon glyphicon-exclamation-sign"></span>
-    <%= flash[:alert] %>
+<div id="poll-form">
+
+  <% if flash[:alert].present? %>
+    <div class="alert alert-danger">
+      <%= button_tag '', class: 'close', data: { dismiss:'alert' } do %>
+        <span aria-hidden="true">&times;</span>
+      <% end %>
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <% if flash[:notice].present? %>
+    <div class="alert alert-info">
+      <%= button_tag '', class: 'close', data: { dismiss:'alert' } do %>
+        <span aria-hidden="true">&times;</span>
+      <% end %>
+      <span class="glyphicon glyphicon-info-sign"></span>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <div>
+    <h1>Noite de talentos</h1>
+    <h4>Insira o código que você recebeu e vote na sua equipe favorita!</h4>
   </div>
-<% end %>
 
-<% if flash[:notice].present? %>
-  <div class="alert alert-info">
-    <%= button_tag '', class: 'close', data: { dismiss:'alert' } do %>
-      <span aria-hidden="true">&times;</span>
-    <% end %>
-    <span class="glyphicon glyphicon-info-sign"></span>
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+  <%= bootstrap_form_tag url: "/poll" do |f| %>
+    <%= f.text_field :code, { label: t('helper.code'), required: true, autofocus: true } %>
+    <%= f.select :team_id, @teams.collect { |team| [team.name, team.id] },
+      { label: t('helper.team') },
+      { class: "selectpicker",  wrapper: { class: 'has-warning'} } %>
+    <div>
+      <%= button_tag t('helper.submit') %>
+    </div>
 
-<%= bootstrap_form_tag url: "/poll" do |f| %>
-  <%= f.text_field :code, { label: t('helper.code') } %>
-  <%= f.select :team_id, @teams.collect { |team| [team.name, team.id] },
-    { label: t('helper.team') },
-    { class: "selectpicker",  wrapper: { class: 'has-warning'} } %>
-  <%= f.submit t('helper.submit'), class: 'btn btn-primary' %>
-<% end %>
+    <br><br>
+    <%= link_to t('helper.view_result'), result_path %>
+  <% end %>
 
-<br>
+</div>
 
-<%= link_to t('helper.view_result'), result_path %>
