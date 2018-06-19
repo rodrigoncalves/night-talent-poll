@@ -13,10 +13,9 @@
   </thead>
 
   <tbody>
-    <% i = 0 %>
     <% @teams.each do |team| %>
       <tr>
-        <td><%= i+=1 %></td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
@@ -35,25 +34,28 @@
 <script>
 
 var timeoutfunc;
-function RefreshTable(tableId, urlData)
-{
+function RefreshTable(tableId, urlData) {
   $.getJSON(urlData, null, (data) => {
     var votes_count = $('#votes_count');
     if (votes_count.length == 0) {
       return;
     }
-    votes_count.html("<strong>Total: </strong>" + data.votes_count);
+    votes_count.html("<strong>Total de votos computados: </strong>" + data.votes_count);
 
     teams = JSON.parse(data.teams);
-    for (var i=0; i<teams.length; i++) {
+    prev = null;
+    for (var i = 0; i < teams.length; i++) {
       team = teams[i];
-
       rows = $("#result-table tbody tr");
       row = rows[i];
 
-      for (var j=1; j<row.cells.length; j++) {
+      for (var j = 0; j < row.cells.length; j++) {
         cell = row.cells[j];
-        if (j == 1) { // Nome da equipe
+        if (j == 0) { // Posição
+          if (prev == null || prev.votes != team.votes) {
+            cell.textContent = i + 1;
+          }
+        } else if (j == 1) { // Nome da equipe
           cell.textContent = team.name;
         } else if (j == 2) { // Votos
           cell.textContent = team.votes;
@@ -62,22 +64,20 @@ function RefreshTable(tableId, urlData)
           cell.textContent = value;
         }
       }
-    }
 
+      prev = team;
+    }
     console.log("Total: " + data.votes_count);
   }
- )
- .fail(() => {
-   clearTimeout(timeoutfunc)
- });
+ ).fail(() => { clearTimeout(timeoutfunc) });
 }
 
 function AutoReload() {
   RefreshTable('#result-table', '/result.json');
-  timeoutfunc = setTimeout(function(){AutoReload();}, 3000);
+  timeoutfunc = setTimeout(function() { AutoReload(); }, 3000);
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
   AutoReload();
 });
 
