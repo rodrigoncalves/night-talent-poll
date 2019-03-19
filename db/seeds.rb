@@ -16,10 +16,10 @@ Participant.create name: "Outra Menina", team_id: 1
 Participant.create name: "Menina Cantamuito", team_id: 1
 Participant.create name: "Dançarino", team_id: 2
 Participant.create name: "Dançarina", team_id: 2
-Participant.create name: "Rafael Santana", team_id: 3
+Participant.create name: "Rafael Gonçalves", team_id: 3
 Participant.create name: "Mulequin", team_id: 3
 Participant.create name: "Isabela Lima", team_id: 4
-Participant.create name: "Rodrigo Santana", team_id: 4
+Participant.create name: "Rodrigo Gonçalves", team_id: 4
 Participant.create name: "Bruno Barbosa", team_id: 4
 Participant.create name: "Luiz Felipe", team_id: 4
 
