@@ -125,7 +125,7 @@ input:required, textarea:required {
    }
 }
 
-footer {
+.footer {
    position: fixed;
    left: 0;
    bottom: 0;
