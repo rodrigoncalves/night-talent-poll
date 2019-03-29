@@ -19,6 +19,7 @@ pt-BR:
         name: "Nome"
   helper:
     code: "Código:"
+    codes: "Códigos"
     team: "Equipe:"
     submit: "CONFIRMAR"
     view_result: "Ver resultado"

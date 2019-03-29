@@ -4,6 +4,11 @@ class PollController < ApplicationController
     @teams = Team.all
   end
 
+  def codes
+    @polls = Poll.all
+    @votes_count = Poll.votes_count
+  end
+
   def update
     poll = Poll.where(code: params[:code]).first
     @teams = Team.all

@@ -1,0 +1,31 @@
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>code</th>
+      <th>value</th>
+      <th>team_id</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @polls.each do |poll| %>
+      <tr>
+          <td><%= poll.id %></td>
+          <td><%= poll.code %></td>
+          <td><%= poll.value %></td>
+          <td><%= poll.team_id %></td>
+      </tr>
+    <% end %>
+
+    <tr>
+      <td colspan="4" id="votes_count">
+        <strong>Total de votos realizados: </strong> <%= @votes_count %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to t('helper.result'), result_path %>
+<br>
+<%= link_to t('helper.back'), root_path %>

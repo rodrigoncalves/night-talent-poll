@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :poll, only: [:index, :update]
   post 'poll', to: 'poll#update'
   get 'result', to: 'poll#show'
+  get 'codes', to: 'poll#codes'
 end
