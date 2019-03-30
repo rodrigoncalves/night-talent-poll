@@ -2,7 +2,7 @@
 <div id="poll-form">
 
   <% if flash[:alert].present? %>
-    <div class="alert alert-danger">
+    <div class="alert alert-danger" style="text-align:center">
       <%= button_tag '', class: 'close', data: { dismiss:'alert' } do %>
         <span aria-hidden="true">&times;</span>
       <% end %>
@@ -12,7 +12,7 @@
   <% end %>
 
   <% if flash[:notice].present? %>
-    <div class="alert alert-info">
+    <div class="alert alert-info" style="text-align:center">
       <%= button_tag '', class: 'close', data: { dismiss:'alert' } do %>
         <span aria-hidden="true">&times;</span>
       <% end %>
@@ -22,14 +22,14 @@
   <% end %>
 
   <% if flash[:wait].present? %>
-    <div class="alert alert-warning">
+    <div class="alert alert-warning" style="text-align:center">
       <span class="glyphicon glyphicon-info-sign"></span>
       <%= flash[:wait] %>
     </div>
   <% end %>
 
   <% if flash[:closed].present? %>
-    <div class="alert alert-danger">
+    <div class="alert alert-danger" style="text-align:center">
       <span class="glyphicon glyphicon-exclamation-sign"></span>
       <%= flash[:closed] %>
     </div>
