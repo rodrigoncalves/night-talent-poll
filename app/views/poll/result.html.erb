@@ -1,6 +1,19 @@
+<%= stylesheet_link_tag "result", media: "all"  %>
+
 <p id="notice"><%= notice %></p>
 
 <h1><%= t('helper.result') %></h1>
+
+<label>Status da votação</label>
+<br>
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <%= link_to 'Espera', voting_path(status: 0), method: :post, class: 'btn btn-warning ' + (@voting.wait? ? '' : 'btn-outline') %>
+  <%= link_to 'Aberta', voting_path(status: 1), method: :post, class: 'btn btn-success ' + (@voting.open? ? '' : 'btn-outline') %>
+  <%= link_to 'Fechada', voting_path(status: 2), method: :post, class: 'btn btn-danger ' + (@voting.closed? ? '' : 'btn-outline') %>
+</div>
+
+<br>
+<br>
 
 <table id="result-table" class="table table-bordered table-hover">
   <thead>
@@ -75,7 +88,11 @@ function RefreshTable(tableId, urlData) {
 
 function AutoReload() {
   RefreshTable('#result-table', '/result.json');
-  timeoutfunc = setTimeout(function() { AutoReload(); }, 3000);
+
+  var is_open = <%= @voting.open?.to_json %>;
+  if (is_open) {
+    timeoutfunc = setTimeout(function() { AutoReload(); }, 3000);
+  }
 }
 
 $(document).ready(function() {

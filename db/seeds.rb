@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Voting.create
+
 Team.create name: "Azul"
 Team.create name: "Vermelho"
 Team.create name: "Amarelo"
