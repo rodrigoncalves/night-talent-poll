@@ -11,7 +11,7 @@ class PollController < ApplicationController
   end
 
   def codes
-    @polls = Poll.all
+    @polls = Poll.order(id: :asc)
     @votes_count = Poll.votes_count
   end
 
