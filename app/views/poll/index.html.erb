@@ -23,9 +23,6 @@
 
   <% if flash[:wait].present? %>
     <div class="alert alert-warning">
-      <%= button_tag '', class: 'close', data: { dismiss:'alert' } do %>
-        <span aria-hidden="true">&times;</span>
-      <% end %>
       <span class="glyphicon glyphicon-info-sign"></span>
       <%= flash[:wait] %>
     </div>
