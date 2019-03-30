@@ -1,7 +1,7 @@
 class PollController < ApplicationController
 
   def index
-    @teams = Team.all
+    @teams = Team.order(name: :asc) # order by name
   end
 
   def codes
