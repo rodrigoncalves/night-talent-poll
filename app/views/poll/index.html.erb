@@ -42,20 +42,52 @@
 
   <%= bootstrap_form_tag url: "/poll" do |f| %>
     <%= f.text_field :code, { label: t('helper.code'), required: true, autofocus: true } %>
-    <%= f.select :team_id, @teams.collect { |team| [team.name, team.id] },
-      { label: t('helper.team') },
-      { class: "selectpicker",  wrapper: { class: 'has-warning'} } %>
+
+    <div class="form-group">
+      <div class="card" style="margin:20px 0">
+        <div class="card-header">
+          <label><%= t('helper.team') %></label>
+        </div>
+        <ul class="list-group list-group-flush">
+
+          <% @teams.collect do |team| %>
+            <li class="list-group-item">
+              <div class="card-stripe">
+              </div>
+              <label class="checkbox">
+                <input type="checkbox" class="chb" id="<%=team.id%>"/>
+                <span class="success"></span>
+              </label>
+              <label style="color: #333" for="<%=team.id%>">
+                <%= team.name %>
+                <%= '-' if team.participants.count > 0 %>
+              </label>
+              <label style="margin:0 0 0 5px; color: #999" for="<%=team.id%>">
+                <%= team.participants.map(&:name).to_sentence(last_word_connector: ' e ', two_words_connector: ' e ') %>
+              </label>
+            </li>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
 
     <div>
       <%= button_tag t('helper.submit'), class: "btn", disabled: !@voting_open %>
     </div>
 
     <br><br>
-    <%# <%= link_to t('helper.view_result'), result_path %>
   <% end %>
 
   <div class="footer">
-    <p>&copy; Copyright 2019 - Rodrigo Gonçalves <a href="https://www.instagram.com/rodgoncalves/">@rodgoncalves</a></p>
+    <p>Versão 1.0. Autor: Rodrigo Gonçalves. &copy; Copyright 2019</p>
   </div>
 
 </div>
+
+<script>
+$(".chb").change(function() {
+    $(".chb").prop('checked',false);
+    $(this).prop('checked',true);
+});
+</script>
