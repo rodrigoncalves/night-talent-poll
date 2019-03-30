@@ -26,7 +26,7 @@ class PollController < ApplicationController
     end
   end
 
-  def show
+  def result
     @teams = Team.all
     @teams = @teams.sort_by { |t| -t.votes } # sort by number of votes
     @votes_count = Poll.valid_votes

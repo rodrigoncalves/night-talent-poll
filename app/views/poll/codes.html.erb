@@ -1,3 +1,5 @@
+<%= link_to t('helper.result'), result_path %> | <%= link_to t('helper.back'), root_path %>
+
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
@@ -11,10 +13,10 @@
   <tbody>
     <% @polls.each do |poll| %>
       <tr>
-          <td><%= poll.id %></td>
-          <td><%= poll.code %></td>
-          <td><%= poll.value %></td>
-          <td><%= poll.team_id %></td>
+        <td><%= poll.id %></td>
+        <td><%= poll.code %></td>
+        <td><%= poll.value %></td>
+        <td><%= poll.team_id %></td>
       </tr>
     <% end %>
 
@@ -25,7 +27,3 @@
     </tr>
   </tbody>
 </table>
-
-<%= link_to t('helper.result'), result_path %>
-<br>
-<%= link_to t('helper.back'), root_path %>
