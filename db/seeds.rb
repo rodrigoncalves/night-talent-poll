@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Voting.create
+Voting.first_or_create!
 
 Team.create name: "Azul"
 Team.create name: "Vermelho"
@@ -38,9 +38,9 @@ Participant.create name: "Dona Branca", team_id: 8
 Participant.create name: "Prof. Black", team_id: 9
 
 for i in 1..200
-  Poll.create code: SecureRandom.hex(5), value: 1
+  Poll.create code: SecureRandom.hex(4), value: 1
 end
 
-for i in 1..10
+for i in 1..6
   Poll.create code: SecureRandom.hex(6), value: 7
 end
