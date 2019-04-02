@@ -30,7 +30,8 @@ class PollController < ApplicationController
         poll.update(team_id: params[:team_id])
         flash.now[:notice] = "Obrigado pelo seu voto. Aguarde pelo anúncio do resultado!"
       else
-        flash.now[:alert] = "Você já votou"
+        poll.update(team_id: params[:team_id])
+        flash.now[:warning] = "Você atualizou seu voto."
       end
 
       @teams = Team.order(name: :asc) # order by name

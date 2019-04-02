@@ -32,7 +32,7 @@ h4{
 #poll-form {
    background-color:rgba(72,72,72,0.7);
    padding: 10px 20px 30px 20px;
-   max-width:30%;
+   max-width:100%;
    float: left;
    left: 50%;
    position: absolute;
