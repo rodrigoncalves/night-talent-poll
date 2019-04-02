@@ -62,10 +62,8 @@
 
           <% @teams.collect do |team| %>
             <li class="list-group-item">
-              <div class="card-stripe">
-              </div>
               <label class="checkbox">
-                <input type="checkbox" class="chb" name="team_id" id="team-<%=team.id%>" value="<%=team.id%>"/>
+                <input type="checkbox" class="chb" name="team_id" id="team-<%=team.id%>" value="<%=team.id%>" />
                 <span class="success"></span>
               </label>
               <label style="color: #333" for="team-<%=team.id%>">

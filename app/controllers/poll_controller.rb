@@ -23,19 +23,21 @@ class PollController < ApplicationController
       redirect_to :poll_index
     else
       poll = Poll.where(code: params[:code]).first
+      team_id = params[:team_id]
 
-      if poll.nil?
-        flash.now[:alert] = "Este código é inválido"
+      if team_id.nil?
+        flash.now[:alert] = "Escolha uma equipe para votar!"
+      elsif poll.nil?
+        flash.now[:alert] = "Este código é inválido!"
       elsif poll.team_id.nil?
-        poll.update(team_id: params[:team_id])
+        poll.update(team_id: team_id)
         flash.now[:notice] = "Obrigado pelo seu voto. Aguarde pelo anúncio do resultado!"
       else
-        poll.update(team_id: params[:team_id])
+        poll.update(team_id: team_id)
         flash.now[:warning] = "Você atualizou seu voto."
       end
 
       @teams = Team.order(name: :asc) # order by name
-
       render :index
     end
   end
