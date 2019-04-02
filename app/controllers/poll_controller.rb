@@ -17,13 +17,12 @@ class PollController < ApplicationController
 
   def update
     voting = Voting.first
+    @voting_open = voting.open?
 
     if !voting.open?
       redirect_to :poll_index
     else
-
       poll = Poll.where(code: params[:code]).first
-      @teams = Team.all
 
       if poll.nil?
         flash.now[:alert] = "Este código é inválido"
@@ -33,6 +32,8 @@ class PollController < ApplicationController
       else
         flash.now[:alert] = "Você já votou"
       end
+
+      @teams = Team.order(name: :asc) # order by name
 
       render :index
     end
