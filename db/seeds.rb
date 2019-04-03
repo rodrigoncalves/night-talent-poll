@@ -8,36 +8,41 @@
 
 Voting.first_or_create!
 
-Team.create name: "Azul"
-Team.create name: "Vermelho"
-Team.create name: "Amarelo"
-Team.create name: "Laranja"
-Team.create name: "Roxo"
-Team.create name: "Rosa"
-Team.create name: "Verde"
-Team.create name: "Branco"
-Team.create name: "Preto"
+Team.create name: "Ana Laura"
+Team.create name: "GRIS"
+Team.create name: "Lívia e Vinícius"
+Team.create name: "Marcos Daniel e Larissa Fernanda"
+Team.create name: "Estêvão Duarte e Arthur Faustino"
+Team.create name: "Os Talentos da Noite"
+Team.create name: "Dinossauros e a Arca"
+Team.create name: "Manu Cleo e Ana Luíza Monteiro"
+Team.create name: "Claudia Santos e Guilherme Soares"
+Team.create name: "Nova Geração"
 
-Participant.create name: "Mística", team_id: 1
-Participant.create name: "Gênio", team_id: 1
-Participant.create name: "Avatar", team_id: 1
-Participant.create name: "Deadpool", team_id: 2
-Participant.create name: "The flash", team_id: 2
-Participant.create name: "Bob Esponja", team_id: 3
-Participant.create name: "Minions", team_id: 3
-Participant.create name: "Simpsons", team_id: 3
-Participant.create name: "Garfield", team_id: 4
-Participant.create name: "Nemo", team_id: 4
-Participant.create name: "Barney", team_id: 5
-Participant.create name: "Peppa", team_id: 6
-Participant.create name: "Pantera cor de rosa", team_id: 6
-Participant.create name: "Patrick", team_id: 6
-Participant.create name: "Shrek", team_id: 7
-Participant.create name: "Hulk", team_id: 7
-Participant.create name: "Dona Branca", team_id: 8
-Participant.create name: "Prof. Black", team_id: 9
+Participant.create name: "Ana Luíza", team_id: 2
+Participant.create name: "Ester Magalhães", team_id: 2
+Participant.create name: "Lavínia", team_id: 2
+Participant.create name: "Maria Angélica", team_id: 2
+Participant.create name: "Sarah Gusmão", team_id: 2
 
-for i in 1..200
+Participant.create name: "Felipe Melchior", team_id: 6
+Participant.create name: "Gabriel Campos", team_id: 6
+Participant.create name: "Ivan Carlos", team_id: 6
+Participant.create name: "Vitor Naves", team_id: 6
+
+Participant.create name: "Rafael Santana", team_id: 7
+Participant.create name: "Pedro Farias", team_id: 7
+Participant.create name: "Ivan Carlos", team_id: 7
+Participant.create name: "Vitor Prata", team_id: 7
+Participant.create name: "Lucas Pessoa", team_id: 7
+Participant.create name: "Wesley Assis", team_id: 7
+Participant.create name: "Elisa Amaral", team_id: 7
+
+Participant.create name: "Monique Oliveira", team_id: 10
+Participant.create name: "Anna Luiza Dutra", team_id: 10
+Participant.create name: "Rebecca Margarita", team_id: 10
+
+for i in 1..300
   Poll.create code: SecureRandom.hex(4), value: 1
 end
 
