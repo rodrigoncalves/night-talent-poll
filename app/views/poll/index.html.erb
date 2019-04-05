@@ -66,10 +66,10 @@
                 <input type="checkbox" class="chb" name="team_id" id="team-<%=team.id%>" value="<%=team.id%>" />
                 <span class="success"></span>
               </label>
-              <label style="color: #333" for="team-<%=team.id%>">
+              <label style="color: <%=team.participants.count > 0 ? "#333" : "#777" %>" for="team-<%=team.id%>">
                 <%= team.name %>
               </label>
-              <label style="margin:0 0 0 5px; color: #999" for="team-<%=team.id%>">
+              <label style="margin:0 0 0 5px; color: #777" for="team-<%=team.id%>">
                 <%= team.participants.map(&:name).to_sentence(last_word_connector: ' e ', two_words_connector: ' e ') %>
               </label>
             </li>
