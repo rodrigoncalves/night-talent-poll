@@ -1,7 +1,7 @@
 class PollController < ApplicationController
 
   def index
-    @teams = Team.all
+    @teams = Team.order(id: :asc)
 
     voting = Voting.first
     flash.now[:wait] = "Aguarde o início da votação" if voting.wait?
@@ -37,7 +37,7 @@ class PollController < ApplicationController
         flash.now[:warning] = "Você atualizou seu voto."
       end
 
-      @teams = Team.all
+      @teams = Team.order(id: :asc)
       render :index
     end
   end
