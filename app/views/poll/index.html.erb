@@ -68,7 +68,6 @@
               </label>
               <label style="color: #333" for="team-<%=team.id%>">
                 <%= team.name %>
-                <%= '-' if team.participants.count > 0 %>
               </label>
               <label style="margin:0 0 0 5px; color: #999" for="team-<%=team.id%>">
                 <%= team.participants.map(&:name).to_sentence(last_word_connector: ' e ', two_words_connector: ' e ') %>
