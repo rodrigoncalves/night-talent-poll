@@ -23,7 +23,7 @@ class PollController < ApplicationController
     if !voting.open?
       redirect_to :poll_index
     else
-      @code = params[:code]
+      @code = params[:code].downcase
       poll = Poll.where(code: @code).first
       team_id = params[:team_id]
 
@@ -34,9 +34,11 @@ class PollController < ApplicationController
       elsif poll.team_id.nil?
         poll.update(team_id: team_id)
         flash.now[:notice] = "Obrigado pelo seu voto. Aguarde pelo anúncio do resultado!"
+        @code.clear
       else
         poll.update(team_id: team_id)
         flash.now[:warning] = "Você atualizou seu voto."
+        @code.clear
       end
 
       @teams = Team.order(id: :asc)
