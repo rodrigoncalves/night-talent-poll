@@ -94,7 +94,8 @@
 
 <script>
 $(".chb").change(function() {
-    $(".chb").prop('checked',false);
-    $(this).prop('checked',true);
+    var checked = !$(this).prop('checked');
+    $(".chb").prop('checked', false);
+    $(this).prop('checked', !checked);
 });
 </script>
