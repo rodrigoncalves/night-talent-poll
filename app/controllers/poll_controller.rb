@@ -31,13 +31,17 @@ class PollController < ApplicationController
         flash.now[:alert] = "Escolha uma equipe para votar!"
       elsif poll.nil?
         flash.now[:alert] = "Este código é inválido!"
-      elsif poll.team_id.nil?
-        poll.update(team_id: team_id)
-        flash.now[:notice] = "Obrigado pelo seu voto. Aguarde pelo anúncio do resultado!"
-        @code.clear
       else
+        if poll.team_id.present?
+          if poll.team_id == team_id.to_i
+            flash.now[:warning] = "Você já votou nessa equipe."
+          else
+            flash.now[:warning] = "Você atualizou seu voto."
+          end
+        end
+
+        flash.now[:notice] = "Obrigado pelo seu voto. Aguarde pelo anúncio do resultado!"
         poll.update(team_id: team_id)
-        flash.now[:warning] = "Você atualizou seu voto."
         @code.clear
       end
 
