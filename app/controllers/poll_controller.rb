@@ -8,6 +8,7 @@ class PollController < ApplicationController
     flash.now[:closed] = "Votação encerrada" if voting.closed?
 
     @voting_open = voting.open?
+    @code = params[:code]
   end
 
   def codes
@@ -22,7 +23,8 @@ class PollController < ApplicationController
     if !voting.open?
       redirect_to :poll_index
     else
-      poll = Poll.where(code: params[:code]).first
+      @code = params[:code]
+      poll = Poll.where(code: @code).first
       team_id = params[:team_id]
 
       if team_id.nil?
