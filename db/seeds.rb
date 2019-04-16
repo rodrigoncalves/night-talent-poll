@@ -47,5 +47,5 @@ for i in 1..300
 end
 
 for i in 1..6
-  Poll.create code: SecureRandom.hex(6), value: 7
+  Poll.create code: SecureRandom.hex(5), value: 7
 end
