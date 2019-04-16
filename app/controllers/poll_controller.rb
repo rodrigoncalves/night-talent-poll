@@ -70,7 +70,7 @@ class PollController < ApplicationController
     voting = Voting.first
     voting.status = params[:status].to_i
     voting.save
-    redirect_to :result
+    redirect_to :resultado
   end
 
 end
