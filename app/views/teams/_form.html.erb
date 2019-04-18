@@ -16,6 +16,11 @@
     <%= form.text_field :name, id: :team_name %>
   </div>
 
+  <div class="field">
+    <%= form.label :order %>
+    <%= form.number_field :order, id: :team_order %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
