@@ -87,7 +87,7 @@ function RefreshTable(tableId, urlData) {
 }
 
 function AutoReload() {
-  RefreshTable('#result-table', '/result.json');
+  RefreshTable('#result-table', '/resultado.json');
 
   var is_open = <%= @voting.open?.to_json %>;
   if (is_open) {
